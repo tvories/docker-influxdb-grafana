@@ -4,13 +4,13 @@ influxdb:
   ports:
     - "8083:8083"
     - "8086:8086"
-    - "8090:8090"
+    - "8093:8093"
   env_file:
     - 'env.influxdb'
   volumes:
     # Data persistency
     # sudo mkdir -p /srv/docker/influxdb/data
-    - /srv/docker/influxdb/data:/var/lib/influxdb
+    - /media/nfs/docker_apps/influxdb:/var/lib/influxdb
 
 telegraf:
   image: telegraf:latest
@@ -21,7 +21,7 @@ telegraf:
     - ./telegraf.conf:/etc/telegraf/telegraf.conf:ro
 
 grafana:
-  image: grafana/grafana:latest
+  image: grafana/grafana:alpine
   container_name: grafana
   ports:
     - "3000:3000"
