@@ -1,5 +1,5 @@
 influxdb:
-  image: influxdb:latest
+  image: influxdb:alpine
   container_name: influxdb
   ports:
     - "8083:8083"
@@ -21,7 +21,7 @@ telegraf:
     - ./telegraf.conf:/etc/telegraf/telegraf.conf:ro
 
 grafana:
-  image: grafana/grafana:alpine
+  image: grafana/grafana
   container_name: grafana
   ports:
     - "3000:3000"
